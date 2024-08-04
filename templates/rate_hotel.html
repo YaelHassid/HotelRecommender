@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <title>Rate Hotel</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container_rate">
+      <h2 class="mt-5">Rate a Hotel</h2>
+      <form method="POST" action="{{ url_for('rate_hotel') }}">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+          {{ form.hotel_name.label(class="form-control-label") }}
+          {{ form.hotel_name(class="form-control", id="hotel_name") }}
+        </div>
+        <div class="form-group" style="display:none;">
+          {{ form.hotel_id.label(class="form-control-label") }}
+          {{ form.hotel_id(class="form-control", id="hotel_id") }}
+        </div>
+        <div class="form-group">
+          {{ form.rating.label(class="form-control-label") }}
+          {{ form.rating(class="form-control") }}
+        </div>
+        <div class="form-group">
+          {{ form.review.label(class="form-control-label") }}
+          {{ form.review(class="form-control", rows=5) }}
+        </div>
+        <div class="form-group">
+          {{ form.submit(class="btn btn-primary") }}
+        </div>
+      </form>
+    </div>
+    <!-- Optional JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-3-typeahead/4.0.2/bootstrap3-typeahead.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('#hotel_name').typeahead({
+          source: function(query, process) {
+            return $.get('{{ url_for("autocomplete_hotel") }}', { q: query }, function(data) {
+              return process(data.matching_results);
+            });
+          },
+          displayText: function(item) {
+            return item.name + " (" + item.address + ")";
+          },
+          afterSelect: function(item) {
+            $('#hotel_id').val(item.id);
+            $('#hotel_name').val(item.name + " (" + item.address + ")");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

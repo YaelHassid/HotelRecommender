@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('/static/background.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    margin: 0;
+    padding: 0;
+    color: #f8f8f8;
+}
+
+html, body {
+    height: 100%;
+    overflow-y: auto; /* Ensure the page is scrollable */
+}
+
+.container {
+    max-width: 400px; /* Increased width */
+    margin: 80px auto; /* Adjusted to use margin for centering and more spacing */
+    padding: 40px; /* Increased padding */
+    background-color: rgba(11, 11, 11, 0.5); /* Semi-transparent background */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Increased shadow for more depth */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    min-height: calc(100vh - 160px); /* Ensure container takes at least the full viewport height minus margins */
+}
+.container_rate {
+    max-width: 800px; /* Increased width */
+    margin: 80px auto; /* Adjusted to use margin for centering and more spacing */
+    padding: 40px; /* Increased padding */  
+    background-color: rgba(11, 11, 11, 0.5); /* Semi-transparent background */
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2); /* Increased shadow for more depth */
+    display: flex;
+    flex-direction: column; /* Align items vertically */
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+    min-height: calc(100vh - 160px); /* Ensure container takes at least the full viewport height minus margins */
+}
+header, footer {
+    text-align: center;
+    margin-bottom: 30px; /* More space around headers and footers */
+}
+
+header h1 {
+    color: #f8f8f8; 
+}
+
+main h2 {
+    color: #f8f8f8; 
+}
+
+
+form {
+    width: 100%; /* Ensure form takes full width of container */
+}
+
+
+form label, form input, form button {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px; /* Increased spacing between form elements */
+}
+
+button {
+    background-color: #272727; /* Dark red color for button */
+    color: white;
+    border: none;
+    padding: 15px; /* Increased padding */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #79becab2; /* Darker red on hover */
+}
+
+.prata-regular {
+    font-family: "Prata", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.rating-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* More space around rating containers */
+}
+
+.rating-container label {
+    margin-right: 15px; /* More space between labels and inputs */
+    min-width: 120px; /* Ensure labels are aligned and more spacious */
+}
+
+.rating-options {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.rating-options label {
+    display: flex;
+    align-items: center;
+}
+
+.rating-options input[type="radio"] {
+    margin-right: 10px; /* More space around radio inputs */
+}
